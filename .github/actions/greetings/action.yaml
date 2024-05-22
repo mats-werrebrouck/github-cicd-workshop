@@ -16,7 +16,7 @@ runs:
       id: print_greeting
       run: |
         echo "Hello $INPUT_WHO_TO_GREET."
-        echo "greeted_names=$INPUT_WHO_TO_GREET" >> $GITHUB_OUTPUT
+        echo "greeted_names=$INPUT_WHO_TO_GREET and cats" >> $GITHUB_OUTPUT
       shell: bash
       env:
         INPUT_WHO_TO_GREET: ${{ inputs.who-to-greet }}

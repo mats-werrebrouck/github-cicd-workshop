@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Echo message
-        uses: mats-werrebrouck/greetings@v1
+        uses: ./.github/actions/greetings
         with:
           who-to-greet: 'Mats'

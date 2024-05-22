@@ -1,0 +1,19 @@
+name: exercise5
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  custom-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout github repository
+        uses: actions/checkout@v4
+
+      - name: Echo message
+        uses: actions/greetings@v1
+        with:
+          who-to-greet: 'Mats'
+          

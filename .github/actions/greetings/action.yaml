@@ -8,24 +8,15 @@ inputs:
 outputs:
   greeting-output:
     description: "Who did we greet"
-    value: ${{ steps.greeting-output.outputs.greetings }}
+    value: ${{ steps.print_greeting.outputs.greeted_names }}
 runs:
   using: "composite"
   steps:
-    - name: Set Greeting
-      run: echo "Hello $INPUT_WHO_TO_GREET."
+    - name: Print Greeting
+      id: print_greeting
+      run: 
+        echo "Hello $INPUT_WHO_TO_GREET."
+        echo "greeted_names=${{ $INPUT_WHO_TO_GREET }}" >> $GITHUB_OUTPUT
       shell: bash
       env:
         INPUT_WHO_TO_GREET: ${{ inputs.who-to-greet }}
-
-    - name: Greeting output
-      id: greeting-output
-      run: echo "greetings=$(echo "Hello $INPUT_WHO_TO_GREET")" >> $GITHUB_OUTPUT
-      shell: bash
-
-    - name: Set GitHub Path
-      run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
-      shell: bash
-      env:
-        GITHUB_ACTION_PATH: ${{ github.action_path }}
-

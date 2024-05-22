@@ -14,7 +14,7 @@ runs:
   steps:
     - name: Print Greeting
       id: print_greeting
-      run: 
+      run: |
         echo "Hello $INPUT_WHO_TO_GREET."
         echo "greeted_names=$INPUT_WHO_TO_GREET" >> $GITHUB_OUTPUT
       shell: bash

@@ -10,3 +10,4 @@
 .docker-root
 
 __pycache__/
+actions-runner/
